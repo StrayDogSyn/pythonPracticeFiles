@@ -133,84 +133,48 @@
 # # # Example of raising an exception
 
 
-# def divide_inputs(input1, input2):
-#     """
-#     Divides two numeric inputs.
+def divide_inputs(input1, input2):
+    """
+    Divides two numeric inputs.
 
-#     Args:
-#         input1 (float): The numerator.
-#         input2 (float): The denominator.
+    Args:
+        input1 (float): The numerator.
+        input2 (float): The denominator.
 
-#     Returns:
-#         float: The result of the division.
+    Returns:
+        float: The result of the division.
 
-#     Raises:
-#         ValueError: If the denominator is zero.
-#         TypeError: If the inputs are not numeric.
-#         IndexError: If the inputs are not provided.
-#         SyntaxError: If the inputs are not valid numbers.
-#         ZeroDivisionError: If the denominator is zero.
-#     """
-#     num1 = float(input1)
-#     num2 = float(input2)
-#     if num2 == 0:
-#         raise ValueError("Division by zero is not allowed.")
-#     return num1 / num2
+    Raises:
+        ValueError: If the denominator is zero.
+        TypeError: If the inputs are not numeric.
+        IndexError: If the inputs are not provided.
+        SyntaxError: If the inputs are not valid numbers.
+        ZeroDivisionError: If the denominator is zero.
+    """
+    num1 = float(input1)
+    num2 = float(input2)
+    if num2 == 0:
+        raise ValueError("Division by zero is not allowed.")
+    return num1 / num2
 
-# def get_inputs():
-#     try:
-#         input1 = input("Enter the first number: ")
-#         input2 = input("Enter the second number: ")
-#         result = divide_inputs(input1, input2)
-#         print(f"Result: {result}")
-#     except ValueError as e:
-#         print(f"Error: {e}")
-#     except TypeError as te:
-#         print(f"Type error: {te}")
-#     except IndexError as ie:
-#         print(f"Index error: {ie}")
-#     except SyntaxError as se:
-#         print(f"Syntax error: {se}")
-#     except ZeroDivisionError:
-#         print("Division by zero is not allowed.")
-#     finally:
-#         print("Bye Felica!")
-# # Execute the function to get user inputs
-# get_inputs()
+def get_inputs():
+    try:
+        input1 = input("Enter the first number: ")
+        input2 = input("Enter the second number: ")
+        result = divide_inputs(input1, input2)
+        print(f"Result: {result}")
+    except ValueError as e:
+        print(f"Error: {e}")
+    except TypeError as te:
+        print(f"Type error: {te}")
+    except IndexError as ie:
+        print(f"Index error: {ie}")
+    except SyntaxError as se:
+        print(f"Syntax error: {se}")
+    except ZeroDivisionError:
+        print("Division by zero is not allowed.")
+    finally:
+        print("Bye Felica!")
+# Execute the function to get user inputs
+get_inputs()
 
-# Password conditions
-class PasswordError(Exception):
-    """Custom exception for password validation errors."""
-    pass
-
-"""
-1. Password must be at least 8 characters long.
-2. Password must contain at least one uppercase letter.
-3. Password must contain at least one lowercase letter.
-4. Password must contain at least one digit.
-"""
-try:
-    user_input = input("Enter a password: ")
-    # Check if the password meets the conditions
-    if len(user_input) < 8:
-        raise PasswordError("Password must be at least 8 characters long.")
-    if not any(char.isupper() for char in user_input):
-        raise PasswordError("Password must contain at least one uppercase letter.")
-    if not any(char.islower() for char in user_input):
-        raise PasswordError("Password must contain at least one lowercase letter.")
-    if not any(char.isdigit() for char in user_input):
-        raise PasswordError("Password must contain at least one digit.")
-    print(f"Password '{user_input}' is valid!")
-except PasswordError as e:
-    print(f"Invalid password: {e}")
-finally:
-    print("Bye Felica!")
-
-print(user_input)
-# Print password outside the try-except block
-
-def future_feature():
-    pass  # coming soon to a commit near you
-
-class Spaceship:
-    pass  # still waiting on Elon
