@@ -2,6 +2,7 @@ import flask
 import stripe
 import os
 from flask_cors import CORS
+from flask import Flask, jsonify
 from dotenv import load_dotenv
 # I attempted to keep the example as simple as possible, focusing on the core functionality of fetching products from Stripe and formatting them for the frontend.
 load_dotenv()  # Load environment variables from .env file
@@ -14,10 +15,12 @@ stripe.api_key = os.getenv("STRIPE_SECRET_KEY")  # Set your Stripe secret key fr
 
 @app.route("/products", methods=["GET"])
 def get_all_products():
-    print("Fetching all products...")
+    
+    # print("Fetching all products...")
     
     products = stripe.Product.list(active=True)  # Fetch all active products from Stripe
-    print(f"Products: {products}")
+    
+    # print(f"Products: {products}")
 
     formatted_products = []  # Format the products into a list of dictionaries
     
