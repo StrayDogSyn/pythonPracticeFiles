@@ -52,7 +52,7 @@ for category, items in cart.items():
         for item in items:
             print(f'  - {item}') 
         print(f'{category.title()}: {items}')
-        print('------------------')
+        print('//------------------//')
 # On to recipe example
 
 # A recipe with ingredients organized by category
@@ -80,19 +80,44 @@ recipe = {
 
 print(f'Ingredients for {recipe["name"]}(servings: {recipe["servings"]}):')
 
+# Print the ingredients by category
 for category, items in recipe['ingredients'].items():
     print(f'{category.title()}:')
     for item in items:
         print(f'  - {item}')
-    print('------------------')
-    
-    
+    print('//------------------//')
+
+# Start with this basic structure
+music_library = {
+    "rock": [
+        {"title": "Bohemian Rhapsody", "artist": "Queen", "duration": 354},
+        {"title": "Stairway to Heaven", "artist": "Led Zeppelin", "duration": 482}
+    ],
+    "pop": [
+        {"title": "Shape of You", "artist": "Ed Sheeran", "duration": 234},
+        {"title": "Blinding Lights", "artist": "The Weeknd", "duration": 201}
+    ],
+    "hip-hop": [
+        {"title": "Lose Yourself", "artist": "Eminem", "duration": 326}
+    ]
+}
+
+# Task 1: Add a new song to the "rock" genre
+# Note: The "duration" key in all song dictionaries represents time in seconds.
+
+new_rock_song = {"title": "Sweet Child O' Mine", "artist": "Guns N' Roses", "duration": 355}
+
+print(f"Added '{new_rock_song['title']}' by {new_rock_song['artist']} to the 'Rock' genre")
 
 
+# Task 2: Print all songs in the "pop" genre
+print("\nAll songs in the Pop genre:")
+for song in music_library["pop"]:
+    print(f"'{song['title']}' by {song['artist']} - {song['duration']} seconds (duration in seconds)")
 
-
-
-
-
-
-
+# Task 3: Calculate the total duration of all songs in "hip-hop"
+total_duration = 0
+for song in music_library["hip-hop"]:
+    total_duration += song["duration"]
+print(f"\nTotal duration of Hip-hop songs: {total_duration} seconds.")
+print('//------------------//')
