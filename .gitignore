@@ -13,7 +13,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -37,9 +36,13 @@ env/
 # IDE specific files
 .idea/
 .vscode/
-*.swp
-*.swo
 
 # OS specific files
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Project specific directories
+modules/
+projects/
+pythonPracticeFiles/
