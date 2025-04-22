@@ -270,3 +270,67 @@ for department, dept_info in school.items():
     for course_id, course_info in dept_info["courses"].items():
         print(f"  {course_id}: {course_info['name']} - {course_info['credits']} credits")
         print(f"    Instructor: {course_info['instructor']}")
+        
+# Lists within lists examples
+
+# A nested list of shopping items organized by category
+shopping_list = [
+    ['mangos', 'apples', 'oranges', 'grapes'],
+    ['carrots', 'broccoli', 'lettuce'],
+    ['corn flakes', 'oatmeal']
+]
+
+print("Shopping list by category:")
+print(shopping_list)
+
+#Accessing Data in Nested Lists:
+# Access a specific item
+item = shopping_list[0][1]
+print("\nThe second item in the first category is:", item)  # apples
+
+# Access the last category
+last_category = shopping_list[-1]
+print("Last category:", last_category)  # ['corn flakes', 'oatmeal']
+
+#Modifying Nested Lists:
+# Add an item to the first category
+shopping_list[0].append('bananas')
+print("\nAdded bananas to first category:", shopping_list[0])
+
+# Replace an item in the second category
+shopping_list[1][0] = 'baby carrots'
+print("Updated second category:", shopping_list[1])
+
+# Add a whole new category
+shopping_list.append(['milk', 'cheese', 'yogurt'])
+print("Added a new category:", shopping_list[-1])
+
+#Iterating Through Nested Lists:
+# Loop through all items in the shopping list
+print("\nAll shopping list items:")
+for category in shopping_list:
+    for item in category:
+        print(f"- {item}")
+
+# Loop with a counter
+print("\nNumbered shopping list:")
+counter = 1
+for category in shopping_list:
+    for item in category:
+        print(f"{counter}. {item}")
+        counter += 1
+
+# Filter items containing 'a'
+print("\nItems containing 'a':")
+for category in shopping_list:
+    for item in category:
+        if 'a' in item:
+            print(f"- {item}")
+
+
+
+
+
+
+
+
