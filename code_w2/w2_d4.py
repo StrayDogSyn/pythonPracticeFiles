@@ -1,4 +1,4 @@
-import requests
+import requests # type: ignore
 
 def get_weather(city):
     """
