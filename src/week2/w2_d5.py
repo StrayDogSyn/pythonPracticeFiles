@@ -1,17 +1,33 @@
-# Convert room temperature from Celsius to Fahrenheit
 def celsius_to_fahrenheit(celsius):
-    """Convert Celsius to Fahrenheit."""
+    """
+    Convert temperature from Celsius to Fahrenheit.
+    
+    Args:
+        celsius (float): Temperature in Celsius
+        
+    Returns:
+        float: Temperature in Fahrenheit
+    """
     return (celsius * 9/5) + 32
 
-# Convert room temperature from Celsius to Fahrenheit
-room_temp_c = 22
-room_temp_f = celsius_to_fahrenheit(room_temp_c)
-print(f"Room temperature: {room_temp_c}°C is {room_temp_f}°F")
-# Convert outdoor temperature from Celsius to Fahrenheit
-outdoor_temp_c = 15
-outdoor_temp_f = celsius_to_fahrenheit(outdoor_temp_c)
-print(f"Outdoor temperature: {outdoor_temp_c}°C is {outdoor_temp_f}°F")
-# Convert body temperature from Celsius to Fahrenheit
-body_temp_c = 37
-body_temp_f = celsius_to_fahrenheit(body_temp_c)
-print(f"Body temperature: {body_temp_c}°C is {body_temp_f}°F")
+def display_temperature(location, temp_c):
+    """
+    Display temperature conversion for a given location.
+    
+    Args:
+        location (str): Description of the temperature location
+        temp_c (float): Temperature in Celsius
+    """
+    temp_f = celsius_to_fahrenheit(temp_c)
+    print(f"{location}: {temp_c}°C is {temp_f:.1f}°F")
+
+# Temperature conversions for different scenarios
+temperatures = {
+    "Room temperature": 22,
+    "Outdoor temperature": 15,
+    "Body temperature": 37
+}
+
+# Display all temperature conversions
+for location, temp_c in temperatures.items():
+    display_temperature(location, temp_c)
