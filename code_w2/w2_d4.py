@@ -1,52 +1,56 @@
-import requests # type: ignore
+import requests
 
-def get_weather(city, country_code=""):
+def get_weather(city):
+    """
+    Retrieves and displays current weather information for a specified city.
+    
+    Args:
+        city (str): Name of the city to get weather for
+    
+    Returns:
+        dict: Weather data if successful, None otherwise
+    """
+    # API key for OpenWeatherMap (required for authentication)
     api_key = "eaf68ffb413d707283399af330d02c3f"
+    
+    # Base URL for the OpenWeatherMap API
     url = "https://api.openweathermap.org/data/2.5/weather"
     
-    location = f"{city},{country_code}" if country_code else city
+    # Parameters for the API request:
+    # - q: location query (city name)
+    # - appid: API key for authentication
+    # - units: metric for Celsius temperature
     params = {
-        "q": location,
+        "q": city,
         "appid": api_key,
         "units": "metric"
     }
     
     try:
+        # Send GET request to the weather API
         response = requests.get(url, params=params)
-        response.raise_for_status()  # Raises an HTTPError for bad responses
         
+        # Check if the request was successful
+        response.raise_for_status()
+        
+        # Convert the response to JSON format
         weather_data = response.json()
         
-        # Extract relevant information
+        # Extract weather information from the response
         temperature = weather_data['main']['temp']
-        feels_like = weather_data['main']['feels_like']
-        humidity = weather_data['main']['humidity']
         description = weather_data['weather'][0]['description']
-        wind_speed = weather_data['wind']['speed']
         
-        # Format and display the weather information
-        print(f"\nWeather in {weather_data['name']}, {weather_data['sys']['country']}:")
+        # Display basic weather information
+        print(f"\nWeather in {city}:")
         print(f"Temperature: {temperature}°C")
-        print(f"Feels like: {feels_like}°C")
-        print(f"Humidity: {humidity}%")
         print(f"Conditions: {description}")
-        print(f"Wind Speed: {wind_speed} m/s")
         
         return weather_data
         
-    except requests.exceptions.HTTPError as http_err:
-        print(f"HTTP Error occurred: {http_err}")
-    except requests.exceptions.ConnectionError:
-        print("Error connecting to the server. Please check your internet connection.")
-    except requests.exceptions.Timeout:
-        print("Request timed out. Please try again.")
-    except requests.exceptions.RequestException as err:
+    except Exception as err:
+        # Simple error handling for all potential issues
         print(f"An error occurred: {err}")
-    except KeyError:
-        print("Error parsing weather data. The API response format might have changed.")
-    
-    return None
+        return None
 
-# Test the function with London, UK
-get_weather("London", "UK")
-
+# Example: Get weather for London
+get_weather("London")
