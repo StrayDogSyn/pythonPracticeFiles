@@ -61,3 +61,14 @@ class Student:
         print(f"Scores: {', '.join(map(str, self.scores))}")
         print(f"Average: {average:.2f}")
         print(f"Grade: {grade}")
+
+def process_student(name, *scores):
+    """
+    Process a student by creating a Student object and displaying their report.
+    
+    Args:
+        name (str): Student's name
+        *scores: Variable number of scores to process
+    """
+    student = Student(name, list(scores))
+    student.display_report()
