@@ -36,13 +36,29 @@ env/
 # IDE specific files
 .idea/
 .vscode/
+*.swp
+*.swo
+.vs/
+.history/
 
 # OS specific files
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Project specific directories
-modules/
-projects/
-pythonPracticeFiles/
+# Cache and compiled files
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node modules (if any)
+node_modules/
+package-lock.json
+
+# Log files
+*.log
+logs/
