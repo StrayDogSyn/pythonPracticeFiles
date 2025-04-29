@@ -50,42 +50,20 @@
 # O(n!): Factorial time - The algorithm's time increases factorially with the input size.
 # This is the slowest time complexity and is often impractical for large inputs.
 
-# Example of O(n log n)
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    mid = len(arr) // 2
-    left_half = merge_sort(arr[:mid])
-    right_half = merge_sort(arr[mid:])
-    
-    return merge(left_half, right_half)
 
-def merge(left, right):
-    result = []
-    i = j = 0
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
+# Algorithm Key Terms:
 
-# Example of O(n^2)
-def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-    return arr
-
-def sum_array(arr):
-    total = 0
-    for num in arr:
-        total += num
-    return total
-
+# Sorting Algorithms:
+# Sorting algorithms are used to arrange the elements of a list or array in a specific order, typically in ascending or descending order. Common sorting algorithms include:
+# In-place Sorting: Sorting algorithms that do not require additional storage space for the sorted elements. Examples include selection sort, insertion sort, and bubble sort.
+# Stable Sorting: Sorting algorithms that maintain the relative order of equal elements in the sorted output. Examples include merge sort and bubble sort.
+# Comparison Sort: Sorting algorithms that compare elements to determine their order. Examples include quicksort, mergesort, and heapsort.
+# Bubble Sort: A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted.
+# Selection Sort: A sorting algorithm that divides the input list into two parts: a sorted part and an unsorted part. It repeatedly selects the smallest (or largest) element from the unsorted part and moves it to the sorted part.
+# Insertion Sort: A sorting algorithm that builds a sorted array (or list) one element at a time. It takes each element from the input and finds its correct position in the sorted part of the array.
+# Time Complexity: A measure of the amount of time an algorithm takes to complete as a function of the length of the input. It is often expressed using Big O notation.
+# Comparison-based Sorting: Sorting algorithms that determine the order of elements by comparing them. Examples include quicksort, mergesort, and heapsort.
+# Swap: The process of exchanging the positions of two elements in an array or list. This is a common operation in sorting algorithms.
+# Partitioning: The process of dividing an array into two parts based on a pivot element. This is a key step in the quicksort algorithm.
+# Pivot: An element chosen from the array during the partitioning process in quicksort. It is used to divide the array into two parts: elements less than the pivot and elements greater than the pivot.
+# Recursion: A programming technique where a function calls itself to solve smaller instances of the same problem. It is often used in algorithms like quicksort and mergesort.
