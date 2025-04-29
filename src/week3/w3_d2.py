@@ -24,11 +24,22 @@ def merge(left, right):
 
 # Example of O(n^2)
 def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
+    # Get the length of the array to determine how many passes we need
+    length = len(arr)
+    
+    # Outer loop: each pass will place the largest unsorted element at the end
+    # We need at most n passes for an array of size n
+    for pass_num in range(length):
+        # Inner loop: compare adjacent elements and swap if they're in the wrong order
+        # With each pass, we can reduce the number of comparisons since the largest elements
+        # are already in their correct positions at the end
+        for j in range(0, length-pass_num-1):
+            # Compare adjacent elements
             if arr[j] > arr[j+1]:
+                # Swap the elements if they are in the wrong order
+                # This gradually "bubbles up" larger elements to the end of the array
                 arr[j], arr[j+1] = arr[j+1], arr[j]
+    
     return arr
 
 def sum_array(arr):
