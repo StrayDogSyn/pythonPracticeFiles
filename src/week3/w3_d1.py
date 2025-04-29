@@ -83,3 +83,9 @@ def bubble_sort(arr):
                 arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
 
+def sum_array(arr):
+    total = 0
+    for num in arr:
+        total += num
+    return total
+
