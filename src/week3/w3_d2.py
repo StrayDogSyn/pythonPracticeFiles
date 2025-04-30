@@ -1,3 +1,6 @@
+## Week 3 Day 2: Algorithmic Thinking and Problem Solving Review
+
+
 # Key Terms
 # Algorithm: A step-by-step procedure for solving a problem or accomplishing a task
 # Algorithmic Thinking: The process of approaching problems systematically by breaking them down and developing step-by-step solutions
